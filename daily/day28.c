@@ -1,0 +1,32 @@
+/*you are climbing a staircase with n steps. 
+Each time, you can climb either 1 step or 2 steps. Find the total number of distinct ways to reach the top.*/
+
+#include <stdio.h>
+
+int main() {
+
+    int n;
+
+    printf("Enter number of stairs: ");
+    scanf("%d", &n);
+
+    if (n <= 0) {
+        printf("Enter a positive number.");
+        return 0;
+    }
+
+    int dp[n + 1];
+
+    dp[0] = 1;
+    dp[1] = 1;
+
+    for (int i = 2; i <= n; i++) {
+
+        dp[i] = dp[i - 1] + dp[i - 2];
+
+    }
+
+    printf("Total number of ways = %d", dp[n]);
+
+    return 0;
+}
